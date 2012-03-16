@@ -31,7 +31,7 @@ public class FreePinTuActivity extends Activity
     	{
     		
     		super(context);
-        	bmp = new Bmp[4]; 
+        	bmp = new Bmp[4];     
         	{
                 
                 for(int i = 0; i < 4; i++)
@@ -174,9 +174,10 @@ public class FreePinTuActivity extends Activity
     		Bmp temp = null;
     		for(int i = 3; i > -1; i--)
     		{
+				rotalP = rotalPoint(new float[]{event.getX(), event.getY()}, pic[0].findByPiority(pic, i).preX, pic[0].findByPiority(pic, i).preY, pic[0].findByPiority(pic, i).width / 2, pic[0].findByPiority(pic, i).height / 2, pic[0].findByPiority(pic, i).matrix);
     			if(
-    					(Math.abs(pic[0].findByPiority(pic, i).getXY(1) - event.getX()) < pic[0].findByPiority(pic, i).getWidth() / 2) 
-    					&& (Math.abs(pic[0].findByPiority(pic, i).getXY(2) - event.getY()) < pic[0].findByPiority(pic, i).getHeight() / 2)
+    					(Math.abs(pic[0].findByPiority(pic, i).getXY(1) - rotalP[0]) < pic[0].findByPiority(pic, i).getWidth() / 2) 
+    					&& (Math.abs(pic[0].findByPiority(pic, i).getXY(2) - rotalP[1]) < pic[0].findByPiority(pic, i).getHeight() / 2)
     					)
     			{
     				temp = pic[0].findByPiority(pic, i);
